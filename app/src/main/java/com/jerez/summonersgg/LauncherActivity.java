@@ -40,7 +40,10 @@ public class LauncherActivity extends AppCompatActivity {
                 if (!isConected()){
                     Intent intent = new Intent(LauncherActivity.this, NoInternet.class);
                     startActivity(intent);
-
+                    finish();
+                }else{
+                    Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
+                    startActivity(intent);
                     finish();
                 }
             }
@@ -48,7 +51,7 @@ public class LauncherActivity extends AppCompatActivity {
         }).start();
     }
 
-    private Boolean isConected(){
+    public Boolean isConected(){
         ConnectivityManager cm =(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return (activeNetwork != null) && activeNetwork.isConnected();

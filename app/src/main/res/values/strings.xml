@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">SummonersGG</string>
-    <string name="no_internet_alert">No internet connection</string>
-    <string name="no_internet_sub">This can be caused because your device isn\'t connected to Internet.\nplease check this before try again</string>
+    <string name="no_internet_alert">Network not connected</string>
+    <string name="no_internet_sub">This can be caused because your device isn\'t connected to any network.\nplease check this before try again</string>
     <string name="no_internet_tryAgain">Try to reconnect</string>
+
+    <string name="StatusBarHome">Find a Summoner</string>
+
 </resources>
