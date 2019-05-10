@@ -7,19 +7,8 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-
-import com.google.common.io.ByteSource;
-import com.google.common.io.ByteStreams;
-import com.merakianalytics.orianna.Orianna;
-import com.merakianalytics.orianna.types.common.Region;
-import com.merakianalytics.orianna.types.core.summoner.Summoner;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class LauncherActivity extends AppCompatActivity {
 
@@ -45,11 +34,18 @@ public class LauncherActivity extends AppCompatActivity {
 //            }
 //        }).start();
 
-        if (isConected()){
-            Intent intent = new Intent(this, NoInternet.class);
-            startActivity(intent);
-            
-        }
+        new Thread(new Runnable() {
+            public void run() {
+                LoadProgresBar();
+                if (!isConected()){
+                    Intent intent = new Intent(LauncherActivity.this, NoInternet.class);
+                    startActivity(intent);
+
+                    finish();
+                }
+            }
+
+        }).start();
     }
 
     private Boolean isConected(){
@@ -57,6 +53,21 @@ public class LauncherActivity extends AppCompatActivity {
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return (activeNetwork != null) && activeNetwork.isConnected();
     }
+
+    private void LoadProgresBar(){
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        for (int i = 0; i <= 100; i++) {
+            progressBar.setProgress(i);
+            synchronized (this) {
+                try {
+                    wait(50);
+                } catch (InterruptedException e) {
+                    e.getStackTrace();
+                }
+            }
+        }
+    }
+
 
 //    public File cargar(){
 //
