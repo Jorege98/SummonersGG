@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/noInternetBack">
+    <ListPreference
+        android:defaultValue="true"
+        android:entries="@array/regions"
+        android:entryValues="@array/regions"
+        android:icon="@drawable/icon_region"
+        android:key="region"
+        android:summary="@string/confRegionSumary"
+        android:title="Region" />
+</PreferenceScreen>

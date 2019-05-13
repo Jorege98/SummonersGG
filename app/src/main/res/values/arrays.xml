@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="regions">
+        <item>Europe West</item>
+        <item>Europe Nordic &amp; East</item>
+        <item>North America</item>
+        <item>Korea</item>
+        <item>Japan</item>
+        <item>Brazil</item>
+        <item>Oceania</item>
+        <item>Russia</item>
+        <item>Turkey</item>
+        <item>LAN</item>
+        <item>LAS</item>
+    </string-array>
+</resources>
