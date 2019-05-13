@@ -6,4 +6,8 @@
 
     <string name="StatusBarHome">Find a Summoner</string>
 
+    <string name="settings_tittle">Settings</string>
+
+    <string name="confRegionSumary">Default region to show</string>
+
 </resources>
