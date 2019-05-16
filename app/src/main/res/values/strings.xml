@@ -10,4 +10,8 @@
 
     <string name="confRegionSumary">Default region to show</string>
 
+    <string name="findButon">Find</string>
+    <string name="noregion">No region selected</string>
+    <string name="summoner">Summoner</string>
+
 </resources>

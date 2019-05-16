@@ -26,13 +26,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    implementation "com.merakianalytics.orianna:orianna-android:4.0.0-rc3"
     implementation 'org.jetbrains:annotations-java5:15.0'
     implementation 'com.github.GrenderG:Toasty:1.4.2'
     implementation 'com.android.support:preference-v7:28.4.0'
-    api 'com.google.guava:guava:27.1-android'
-    // https://mvnrepository.com/artifact/org.slf4j/slf4j-android
-    implementation group: 'org.slf4j', name: 'slf4j-android', version: '1.7.7'
     implementation 'com.github.taycaldwell:riot-api-java:4.2.0'
 
 }

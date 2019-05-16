@@ -62,6 +62,7 @@
         android:layout_marginEnd="8dp"
         android:onClick="OnClick"
         android:text="@string/no_internet_tryAgain"
+        android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"

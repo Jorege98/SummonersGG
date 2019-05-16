@@ -17,23 +17,6 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
 
-//        new Thread(new Runnable() {
-//            public void run() {
-//
-//                try(InputStream stream = getAssets().open("config.json")) {
-//                    Orianna.loadConfiguration(ByteSource.wrap(ByteStreams.toByteArray(stream)).asCharSource(Charset.forName("UTF-8")));
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                Orianna.setDefaultRegion(Region.EUROPE_WEST);
-//                Orianna.setRiotAPIKey("RGAPI-418cec1b-07dd-447e-a2bf-6a93f4eececc");
-//
-//                Summoner summoner = Summoner.named("OG xPako").withRegion(Region.EUROPE_WEST).get();
-//                System.out.println("Level: " + summoner.getLevel());
-//            }
-//        }).start();
-
         new Thread(new Runnable() {
             public void run() {
                 LoadProgresBar();
@@ -71,24 +54,4 @@ public class LauncherActivity extends AppCompatActivity {
         }
     }
 
-
-//    public File cargar(){
-//
-//        File f = new File(getCacheDir()+"/config.json");
-//        if (!f.exists()) try {
-//
-//            InputStream is = getAssets().open("config.json");
-//            int size = is.available();
-//            byte[] buffer = new byte[size];
-//            is.read(buffer);
-//            is.close();
-//
-//
-//            FileOutputStream fos = new FileOutputStream(f);
-//            fos.write(buffer);
-//            fos.close();
-//        } catch (Exception e) { throw new RuntimeException(e); }
-//
-//        return f;
-//    }
 }

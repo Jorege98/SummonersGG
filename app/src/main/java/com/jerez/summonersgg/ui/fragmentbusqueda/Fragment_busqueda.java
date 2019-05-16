@@ -16,13 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-
 import com.jerez.summonersgg.R;
 
 import net.rithms.riot.api.RiotApiException;
 import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 
-import java.io.IOException;
 
 
 public class Fragment_busqueda extends Fragment {
@@ -56,14 +54,12 @@ public class Fragment_busqueda extends Fragment {
         }
 
         try {
-            Summoner summoner = mViewModel.loadSummoner();
+            Summoner summoner = mViewModel.loadSummoner("","");
             setText(summoner.getName());
         } catch (RiotApiException e) {
             e.printStackTrace();
         }
 
-        //setText(regionPeference);
-        // TODO: Use the ViewModel
     }
 
     //metodo de pruebas para set text
