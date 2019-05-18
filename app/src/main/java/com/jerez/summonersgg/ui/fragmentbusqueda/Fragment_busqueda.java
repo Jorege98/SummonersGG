@@ -11,21 +11,27 @@ import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
 import android.os.StrictMode;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jerez.summonersgg.R;
 
-import net.rithms.riot.api.RiotApiException;
-import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
+import es.dmoral.toasty.Toasty;
 
-
-
-public class Fragment_busqueda extends Fragment {
+public class Fragment_busqueda extends Fragment implements View.OnClickListener {
 
     private MainActivityViewModel mViewModel;
+    private TextView regionTitle;
+    private TextView regionSub;
+    private ImageView regionImage;
+    private String regionPeference;
+    private Button find;
 
     public static Fragment_busqueda newInstance() {
         return new Fragment_busqueda();
@@ -43,29 +49,46 @@ public class Fragment_busqueda extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
+        regionTitle = getView().findViewById(R.id.regionTitle);
+        regionSub = getView().findViewById(R.id.regionSub);
+        regionImage = getView().findViewById(R.id.regionImagen);
+        find = getView().findViewById(R.id.find);
+
+        find.setOnClickListener(this);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        String regionPeference = preferences.getString("region", null);
+        regionPeference = preferences.getString("region", null);
 
-        String[] regions = getResources().getStringArray(R.array.regions);
-
-        for (String region:regions) {
-
+        if (regionPeference==null){
+            regionTitle.setText(getResources().getString(R.string.noregion));
+        }else{
+            regionImage.setImageDrawable(mViewModel.getRegionImage(regionPeference.split(", ")[0]));
+            regionTitle.setText(regionPeference.split(", ")[1]);
+            regionSub.setText(regionPeference.split(", ")[0]);
         }
 
-        try {
-            Summoner summoner = mViewModel.loadSummoner("","");
-            setText(summoner.getName());
-        } catch (RiotApiException e) {
-            e.printStackTrace();
-        }
 
     }
 
     //metodo de pruebas para set text
     private void setText(String text){
+//        try {
+//            Summoner summoner = mViewModel.loadSummoner(regionPeference.split(", ")[0], "OG xPako");
+//            setText(summoner.getName());
+//        } catch (RiotApiException e) {
+//            e.printStackTrace();
+//        }
+    }
 
-        TextView textView = getView().findViewById(R.id.message);
-        textView.setText(text);
+    @Override
+    public void onClick(View v) {
+        if (regionPeference==null){
+            Toasty.Config.getInstance().allowQueue(false).apply();
+            Toast toast = Toasty.error(getActivity(), R.string.noregion, Toast.LENGTH_LONG, true);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+        }else{
+
+        }
     }
 }

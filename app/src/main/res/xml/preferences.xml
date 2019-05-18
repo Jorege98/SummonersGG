@@ -4,7 +4,7 @@
     <ListPreference
         android:defaultValue="true"
         android:entries="@array/regions"
-        android:entryValues="@array/regions"
+        android:entryValues="@array/regionsCODE"
         android:icon="@drawable/icon_region"
         android:key="region"
         android:summary="@string/confRegionSumary"
