@@ -46,10 +46,10 @@
         app:layout_constraintBottom_toTopOf="@+id/find"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regionImagen" />
+        app:layout_constraintTop_toBottomOf="@+id/infoImagen" />
 
     <ImageView
-        android:id="@+id/regionImagen"
+        android:id="@+id/infoImagen"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
@@ -64,11 +64,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regionSub"
+        app:layout_constraintTop_toBottomOf="@+id/infoSub"
         app:srcCompat="@drawable/summoners" />
 
     <TextView
-        android:id="@+id/regionTitle"
+        android:id="@+id/infoTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/regionSub"
+        android:id="@+id/infoSub"
         style="@style/no_internet_sub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,6 +92,6 @@
         android:text="@string/noregion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regionTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/infoTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

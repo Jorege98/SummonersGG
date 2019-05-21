@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SummonersGG</string>
+    <string name="app_name">Summoners GG</string>
     <string name="no_internet_alert">Network not connected</string>
     <string name="no_internet_sub">This can be caused because your device isn\'t connected to any network.\nplease check this before try again</string>
     <string name="no_internet_tryAgain">Try to reconnect</string>
@@ -13,6 +13,16 @@
     <string name="findButon">Find</string>
     <string name="noregion">No region selected</string>
     <string name="summoner">Summoner</string>
+
+
+    <string name="infoSupportBar">APP Info</string>
+    <string name="infotext">Summoners GG was developed by Jorge Jerez
+        \nUsing Summoners GG you are accepting <a href="https://www.riotgames.com/en/legal">Riot Games Policies</a>.
+        \nSummoners GG uses Taylor Caldwell Java wrapper for Riot Games API you can find on <a href="https://github.com/taycaldwell/riot-api-java">GitHub</a>.
+        \nSummoners GG uses Daniel Morales Toasty Libraries, which uses Facebook and Pranav Raj Singh Chauhan libraries. You can find Toasty <a href="https://github.com/GrenderG/Toasty">here</a>.
+        \nSummoners GG is totally free and open source, you can find the code <a href="https://github.com/Jorege98/SummonersGG">here</a>.
+        \n\n© 2019 Jorge Jerez
+    </string>
 
 
 </resources>

@@ -54,8 +54,29 @@ public class MainActivity extends AppCompatActivity {
                         .replace(R.id.container, new SettingsFragment())
                         .commit();
                 return true;
+            case R.id.info:
+                Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+                Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.infoSupportBar);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, info.newInstance())
+                        .commit();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        try {
+            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
+            Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.StatusBarHome);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, Fragment_busqueda.newInstance())
+                    .commitNow();
+        }catch (Exception e){
+
+        }
     }
 }
