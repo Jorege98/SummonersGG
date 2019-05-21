@@ -49,9 +49,9 @@ public class Fragment_busqueda extends Fragment implements View.OnClickListener 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
-        regionTitle = getView().findViewById(R.id.regionTitle);
-        regionSub = getView().findViewById(R.id.regionSub);
-        regionImage = getView().findViewById(R.id.regionImagen);
+        regionTitle = getView().findViewById(R.id.infoTitle);
+        regionSub = getView().findViewById(R.id.infoSub);
+        regionImage = getView().findViewById(R.id.infoImagen);
         find = getView().findViewById(R.id.find);
 
         find.setOnClickListener(this);
