@@ -1,5 +1,7 @@
-package com.jerez.summonersgg.ui.fragmentbusqueda;
+package com.jerez.summonersgg.ui.fragments;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.SharedPreferences;
@@ -16,11 +18,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jerez.summonersgg.MainActivity;
 import com.jerez.summonersgg.R;
+import com.jerez.summonersgg.info;
+
+import net.rithms.riot.api.RiotApiException;
+import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 
 import es.dmoral.toasty.Toasty;
 
@@ -70,16 +78,6 @@ public class Fragment_busqueda extends Fragment implements View.OnClickListener 
 
     }
 
-    //metodo de pruebas para set text
-    private void setText(String text){
-//        try {
-//            Summoner summoner = mViewModel.loadSummoner(regionPeference.split(", ")[0], "OG xPako");
-//            setText(summoner.getName());
-//        } catch (RiotApiException e) {
-//            e.printStackTrace();
-//        }
-    }
-
     @Override
     public void onClick(View v) {
         if (regionPeference==null){
@@ -88,6 +86,52 @@ public class Fragment_busqueda extends Fragment implements View.OnClickListener 
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
         }else{
+            EditText editText = getView().findViewById(R.id.summonerToFind);
+            String summonerToFind = null;
+
+            try {
+                summonerToFind = editText.getText().toString();
+            }catch (NullPointerException e){
+                Toast toast = Toasty.error(getActivity(), R.string.noSummoner, Toast.LENGTH_LONG, true);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+            }
+
+            try {
+                Summoner summoner = mViewModel.loadSummoner(regionPeference.split(", ")[0], summonerToFind);
+
+                mViewModel.setSummoner(summoner);
+
+                ((MainActivity)getActivity()).onSummonerFind(mViewModel);
+
+            } catch (RiotApiException e) {
+                switch (e.getErrorCode()){
+                    case 500:
+                        Toast toast500 = Toasty.error(getActivity(), R.string.error500, Toast.LENGTH_LONG, true);
+                        toast500.setGravity(Gravity.CENTER,0,0);
+                        toast500.show();
+                        break;
+                    case 503:
+                        Toast toast503 = Toasty.error(getActivity(), R.string.error503, Toast.LENGTH_LONG, true);
+                        toast503.setGravity(Gravity.CENTER,0,0);
+                        toast503.show();
+                        break;
+                    case 404:
+                        Toast toast404 = Toasty.error(getActivity(), R.string.error404, Toast.LENGTH_LONG, true);
+                        toast404.setGravity(Gravity.CENTER,0,0);
+                        toast404.show();
+                        break;
+                    case 429:
+                        Toast toast429 = Toasty.error(getActivity(), R.string.error429, Toast.LENGTH_LONG, true);
+                        toast429.setGravity(Gravity.CENTER,0,0);
+                        toast429.show();
+                        break;
+                }
+            } catch (IllegalArgumentException e){
+                Toast toast = Toasty.error(getActivity(), R.string.badName, Toast.LENGTH_LONG, true);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
+            }
 
         }
     }

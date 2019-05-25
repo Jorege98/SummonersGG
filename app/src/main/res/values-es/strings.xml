@@ -11,4 +11,11 @@
     <string name="settings_tittle">Ajustes</string>
     <string name="StatusBarHome">Buscar Invocador</string>
     <string name="summoner">Invocador</string>
+    <string name="infotext">"Summoners GG ha sido desarrollada por Jorge Jerez          Al usar Summoners GG aceptas las<a href="https://www.riotgames.com/en/legal">Riot Games Policies</a>.          Summoners GG usael el Java Wrapper de Taylor Caldwell para el API de Riot Games que puedes encontrar en <a href="https://github.com/taycaldwell/riot-api-java">GitHub</a>.          Summoners GG usa las librerias de Daniel Morales llamdadas Toasty, Que a su vez usan las librerias de Facebook y Pranav Raj Singh Chauhan. Puedes encontrar Toasty <a href="https://github.com/GrenderG/Toasty">aqui</a>.          Summoners GG es totalmente gratuita y de código abierto, puedes encontrar su código <a href="https://github.com/Jorege98/SummonersGG">aqui</a>.           © 2019 Jorge Jerez     "</string>
+    <string name="noSummoner">Escriba un nombre de Invocador Valido</string>
+    <string name="error404">Invocador no encontrado</string>
+    <string name="error429">Se ha excedido el limite de consultar por minuto</string>
+    <string name="badName">Nombre de invocador invalido</string>
+    <string name="error500">Error interno del servidor, intentelo mas tarde</string>
+    <string name="error503">los servicios de API de Riot no estan disponibles en este momento, intentelo más tarde</string>
 </resources>
