@@ -1,4 +1,4 @@
-package com.jerez.summonersgg.ui.fragmentbusqueda;
+package com.jerez.summonersgg.ui.fragments;
 
 import android.app.Application;
 import android.content.res.Resources;
@@ -8,39 +8,50 @@ import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
+import com.jerez.summonersgg.LauncherActivity;
 import com.jerez.summonersgg.R;
 
 import net.rithms.riot.api.ApiConfig;
 import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
+import net.rithms.riot.api.endpoints.league.dto.LeaguePosition;
 import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 import net.rithms.riot.constant.Platform;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MainActivityViewModel extends AndroidViewModel {
 
     private Resources resources;
+    private Summoner summoner;
+
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
         resources = application.getResources();
     }
 
-    public Summoner loadSummoner(String region, String name) throws RiotApiException {
+    Summoner loadSummoner(String region, String name) throws RiotApiException {
 
         ApiConfig config = new ApiConfig().setKey("RGAPI-418cec1b-07dd-447e-a2bf-6a93f4eececc");
         RiotApi api = new RiotApi(config);
 
-        switch (region){
-
-        }
 
         Summoner summoner = api.getSummonerByName(Platform.getPlatformByName(region), name);
+
+//        Collection<LeaguePosition> leaguePositionsBySummonerId = api.getLeaguePositionsBySummonerId(Platform.getPlatformByName(region), summoner.getId());
+//
+//        for (LeaguePosition leage :leaguePositionsBySummonerId) {
+//            leage.getTier();
+//        }
 
         return summoner;
     }
 
 
-    public Drawable getRegionImage(String region) {
+    Drawable getRegionImage(String region) {
         Drawable image = null;
 
         switch (region){
@@ -80,5 +91,13 @@ public class MainActivityViewModel extends AndroidViewModel {
         }
 
         return image;
+    }
+
+    public Summoner getSummoner() {
+        return summoner;
+    }
+
+    public void setSummoner(Summoner summoner) {
+        this.summoner = summoner;
     }
 }

@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.jerez.summonersgg.ui.fragmentbusqueda.Fragment_busqueda;
+import com.jerez.summonersgg.ui.fragments.Fragment_busqueda;
+import com.jerez.summonersgg.ui.fragments.Fragment_summoner;
+import com.jerez.summonersgg.ui.fragments.MainActivityViewModel;
 
 import java.util.Objects;
 
@@ -78,5 +80,13 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
 
         }
+    }
+
+    public void onSummonerFind(MainActivityViewModel viewModel) {
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(viewModel.getSummoner().getName());
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, Fragment_summoner.newInstance(viewModel))
+                .commitNow();
     }
 }
