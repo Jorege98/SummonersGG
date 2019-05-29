@@ -18,6 +18,7 @@
     <string name="badName">Nombre de invocador invalido</string>
     <string name="error500">Error interno del servidor, intentelo mas tarde</string>
     <string name="error503">los servicios de API de Riot no estan disponibles en este momento, intentelo más tarde</string>
+<<<<<<< HEAD
     <string name="level">"Nivel: "</string>
     <string name="bronze">Bronce</string>
     <string name="challenger">Aspirante</string>
@@ -28,4 +29,6 @@
     <string name="master">Maestro</string>
     <string name="plat">Platino</string>
     <string name="silver">Plata</string>
+=======
+>>>>>>> master
 </resources>

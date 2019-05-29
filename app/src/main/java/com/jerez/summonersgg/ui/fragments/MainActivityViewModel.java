@@ -2,6 +2,7 @@ package com.jerez.summonersgg.ui.fragments;
 
 import android.app.Application;
 import android.content.res.Resources;
+<<<<<<< HEAD
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -9,6 +10,8 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
+=======
+>>>>>>> master
 import android.graphics.drawable.Drawable;
 import android.widget.Switch;
 
@@ -22,6 +25,7 @@ import net.rithms.riot.api.ApiConfig;
 import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
 import net.rithms.riot.api.endpoints.league.dto.LeaguePosition;
+<<<<<<< HEAD
 import net.rithms.riot.api.endpoints.spectator.dto.CurrentGameInfo;
 import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 import net.rithms.riot.constant.Platform;
@@ -30,6 +34,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+=======
+import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
+import net.rithms.riot.constant.Platform;
+
+>>>>>>> master
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -38,9 +47,12 @@ public class MainActivityViewModel extends AndroidViewModel {
 
     private Resources resources;
     private Summoner summoner;
+<<<<<<< HEAD
     private LeaguePosition tt;
     private LeaguePosition flex;
     private LeaguePosition soloq;
+=======
+>>>>>>> master
 
 
     public MainActivityViewModel(@NonNull Application application) {
@@ -56,6 +68,7 @@ public class MainActivityViewModel extends AndroidViewModel {
 
         Summoner summoner = api.getSummonerByName(Platform.getPlatformByName(region), name);
 
+<<<<<<< HEAD
         Collection<LeaguePosition> leaguePositionsBySummonerId = api.getLeaguePositionsBySummonerId(Platform.getPlatformByName(region), summoner.getId());
 
         for (LeaguePosition league :leaguePositionsBySummonerId) {
@@ -72,6 +85,13 @@ public class MainActivityViewModel extends AndroidViewModel {
             }
 
         }
+=======
+//        Collection<LeaguePosition> leaguePositionsBySummonerId = api.getLeaguePositionsBySummonerId(Platform.getPlatformByName(region), summoner.getId());
+//
+//        for (LeaguePosition leage :leaguePositionsBySummonerId) {
+//            leage.getTier();
+//        }
+>>>>>>> master
 
         return summoner;
     }
@@ -123,6 +143,7 @@ public class MainActivityViewModel extends AndroidViewModel {
         return summoner;
     }
 
+<<<<<<< HEAD
     void setSummoner(Summoner summoner) {
         this.summoner = summoner;
     }
@@ -172,4 +193,9 @@ public class MainActivityViewModel extends AndroidViewModel {
         return output;
     }
 
+=======
+    public void setSummoner(Summoner summoner) {
+        this.summoner = summoner;
+    }
+>>>>>>> master
 }

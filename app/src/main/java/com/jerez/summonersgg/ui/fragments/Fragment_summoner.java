@@ -1,7 +1,10 @@
 package com.jerez.summonersgg.ui.fragments;
 
+<<<<<<< HEAD
 import android.annotation.SuppressLint;
 
+=======
+>>>>>>> master
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +26,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
+=======
+
+import com.jerez.summonersgg.R;
+
+>>>>>>> master
 public class Fragment_summoner extends Fragment {
 
     private static MainActivityViewModel mViewModel;
@@ -37,11 +46,15 @@ public class Fragment_summoner extends Fragment {
         return inflater.inflate(R.layout.fragment_summoner, container, false);
     }
 
+<<<<<<< HEAD
     @SuppressLint("SetTextI18n")
+=======
+>>>>>>> master
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+<<<<<<< HEAD
         ImageView summonerIcon = getView().findViewById(R.id.icon);
         TextView level = getView().findViewById(R.id.level);
         try {
@@ -153,5 +166,10 @@ public class Fragment_summoner extends Fragment {
                 break;
         }
     }
+=======
+        // TODO: Use the ViewModel
+    }
+
+>>>>>>> master
 
 }
