@@ -1,13 +1,312 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.Fragment_summoner">
+    tools:context=".ui.fragments.Fragment_summoner"
+    android:background="@color/noInternetBack">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="centerInside"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/flexTitle"
+            app:layout_constraintEnd_toStartOf="@+id/space5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/level"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/level"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/level"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/icon"
+            app:layout_constraintEnd_toStartOf="@+id/soloqIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Space
+            android:id="@+id/space5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/space4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/soloqTitle"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/soloq"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/space5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/soloqIcon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="centerInside"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/soloqsub"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/space5"
+            app:layout_constraintTop_toBottomOf="@+id/soloqTitle"
+            app:srcCompat="@drawable/unranked"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/soloqsub"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/unranked"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/space2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.536"
+            app:layout_constraintStart_toEndOf="@+id/space5" />
+
+        <TextView
+            android:id="@+id/sololoss"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="24dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/ttTitle"
+            app:layout_constraintEnd_toStartOf="@+id/solowins"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toEndOf="@+id/space5"
+            app:layout_constraintTop_toBottomOf="@+id/soloqsub" />
+
+        <TextView
+            android:id="@+id/solowins"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            android:textColor="#0F830B"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/ttTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/soloqsub"
+            app:layout_constraintVertical_bias="0.51" />
+
+        <Space
+            android:id="@+id/space4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/flexTitle"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/flex"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/space2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/space2" />
+
+        <ImageView
+            android:id="@+id/flexIcon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="centerInside"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/flexsub"
+            app:layout_constraintEnd_toStartOf="@+id/space2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flexTitle"
+            app:srcCompat="@drawable/unranked"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/flexsub"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/unranked"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/space2"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/flexloss"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/flexwins"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flexsub" />
+
+        <TextView
+            android:id="@+id/flexwins"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#0F830B"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/flexIcon"
+            app:layout_constraintTop_toBottomOf="@+id/flexsub" />
+
+        <Space
+            android:id="@+id/space2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/space4" />
+
+        <TextView
+            android:id="@+id/ttTitle"
+            style="@style/no_internet_sub"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/tt"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/space2"
+            app:layout_constraintTop_toTopOf="@+id/space2" />
+
+        <ImageView
+            android:id="@+id/ttIcon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="centerInside"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/ttsub"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/space2"
+            app:layout_constraintTop_toBottomOf="@+id/ttTitle"
+            app:srcCompat="@drawable/unranked"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/ttsub"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/unranked"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toEndOf="@+id/space2" />
+
+        <TextView
+            android:id="@+id/ttloss"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ttwins"
+            app:layout_constraintStart_toStartOf="@+id/ttIcon"
+            app:layout_constraintTop_toBottomOf="@+id/ttsub" />
+
+        <TextView
+            android:id="@+id/ttwins"
+            style="@style/no_internet_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#0F830B"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ttsub" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

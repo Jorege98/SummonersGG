@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.StatusBarHome);
 
-
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, Fragment_busqueda.newInstance())
@@ -89,4 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.container, Fragment_summoner.newInstance(viewModel))
                 .commitNow();
     }
+
+
 }

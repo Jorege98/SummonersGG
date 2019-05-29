@@ -1,7 +1,5 @@
 package com.jerez.summonersgg.ui.fragments;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.SharedPreferences;
@@ -25,7 +23,7 @@ import android.widget.Toast;
 
 import com.jerez.summonersgg.MainActivity;
 import com.jerez.summonersgg.R;
-import com.jerez.summonersgg.info;
+
 
 import net.rithms.riot.api.RiotApiException;
 import net.rithms.riot.api.endpoints.summoner.dto.Summoner;

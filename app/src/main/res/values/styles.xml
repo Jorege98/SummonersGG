@@ -30,4 +30,6 @@
         <item name="android:typeface">sans</item>
     </style>
 
+    <style name="flex">5vs5 Flex</style>
+
 </resources>

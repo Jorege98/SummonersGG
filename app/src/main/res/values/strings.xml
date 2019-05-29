@@ -24,5 +24,21 @@
     <string name="error429">You exceeded the limit of request per minut</string>
     <string name="badName">Invalid Summoner Name</string>
 
+    <string name="flex" translatable="false">5vs5 Flex</string>
+    <string name="soloq" translatable="false">Solo Q</string>
+    <string name="tt" translatable="false">3vs3</string>
+    <string name="level">Level:</string>
+
+    <string name="unranked" translatable="false">Unranked</string>
+    <string name="iron">Iron</string>
+    <string name="bronze">Bronze</string>
+    <string name="silver">Silver</string>
+    <string name="gold">Gold</string>
+    <string name="plat">Platinum</string>
+    <string name="dia">Diamond</string>
+    <string name="master">Master</string>
+    <string name="grandma">Grandmaster</string>
+    <string name="challenger">Challenger</string>
+
 
 </resources>

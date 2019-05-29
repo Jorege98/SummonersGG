@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="50dp"
-        android:onClick="buscar"
         android:text="@string/findButon"
         android:textAlignment="center"
         android:textSize="24sp"

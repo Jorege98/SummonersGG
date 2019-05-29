@@ -1,7 +1,5 @@
 package com.jerez.summonersgg;
 
-import androidx.lifecycle.ViewModelProviders;
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
