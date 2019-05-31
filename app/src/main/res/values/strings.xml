@@ -12,17 +12,17 @@
 
     <string name="findButon">Find</string>
     <string name="noregion">No region selected</string>
-    <string name="noSummoner">Please write a correct summoner name</string>
     <string name="summoner">Summoner</string>
 
 
     <string name="infoSupportBar">APP Info</string>
-    <string name="infotext">"Summoners GG was developed by Jorge Jerez          Using Summoners GG you are accepting <a href="https://www.riotgames.com/en/legal">Riot Games Policies</a>.          Summoners GG uses Taylor Caldwell Java wrapper for Riot Games API you can find on <a href="https://github.com/taycaldwell/riot-api-java">GitHub</a>.          Summoners GG uses Daniel Morales Toasty Libraries, which uses Facebook and Pranav Raj Singh Chauhan libraries. You can find Toasty <a href="https://github.com/GrenderG/Toasty">here</a>.          Summoners GG is totally free and open source, you can find the code <a href="https://github.com/Jorege98/SummonersGG">here</a>.           © 2019 Jorge Jerez     "</string>
-    <string name="error500">Internal Server Error, please try it latter</string>
-    <string name="error503">Riot API Service is unaviable right now</string>
-    <string name="error404">Summoner not found</string>
-    <string name="error429">You exceeded the limit of request per minut</string>
-    <string name="badName">Invalid Summoner Name</string>
+    <string name="infotext">Summoners GG was developed by Jorge Jerez
+        \nUsing Summoners GG you are accepting <a href="https://www.riotgames.com/en/legal">Riot Games Policies</a>.
+        \nSummoners GG uses Taylor Caldwell Java wrapper for Riot Games API you can find on <a href="https://github.com/taycaldwell/riot-api-java">GitHub</a>.
+        \nSummoners GG uses Daniel Morales Toasty Libraries, which uses Facebook and Pranav Raj Singh Chauhan libraries. You can find Toasty <a href="https://github.com/GrenderG/Toasty">here</a>.
+        \nSummoners GG is totally free and open source, you can find the code <a href="https://github.com/Jorege98/SummonersGG">here</a>.
+        \n\n© 2019 Jorge Jerez
+    </string>
 
 <<<<<<< HEAD
     <string name="flex" translatable="false">5vs5 Flex</string>

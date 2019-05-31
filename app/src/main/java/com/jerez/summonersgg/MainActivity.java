@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.jerez.summonersgg.ui.fragments.Fragment_busqueda;
-import com.jerez.summonersgg.ui.fragments.Fragment_summoner;
-import com.jerez.summonersgg.ui.fragments.MainActivityViewModel;
+import com.jerez.summonersgg.ui.fragmentbusqueda.Fragment_busqueda;
 
 import java.util.Objects;
 
