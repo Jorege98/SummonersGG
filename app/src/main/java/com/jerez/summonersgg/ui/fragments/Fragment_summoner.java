@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.jerez.summonersgg.R;
@@ -41,7 +42,12 @@ public class Fragment_summoner extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        cargarDatos();
+    }
 
+
+
+    private void cargarDatos(){
         ImageView summonerIcon = getView().findViewById(R.id.icon);
         TextView level = getView().findViewById(R.id.level);
         try {
@@ -54,6 +60,13 @@ public class Fragment_summoner extends Fragment {
         TextView solosub = getView().findViewById(R.id.soloqsub);
         TextView flexsub = getView().findViewById(R.id.flexsub);
         TextView ttsub = getView().findViewById(R.id.ttsub);
+        ImageView estatus = getView().findViewById(R.id.status);
+
+        if (mViewModel.isInGame()){
+            estatus.setImageDrawable(getResources().getDrawable(R.drawable.bussy, null));
+        }else {
+            estatus.setImageDrawable(getResources().getDrawable(R.drawable.free, null));
+        }
 
 
         if (mViewModel.getSoloq()!=null){
@@ -83,10 +96,6 @@ public class Fragment_summoner extends Fragment {
             TextView ttloss = getView().findViewById(R.id.ttloss);
             ttloss.setText("L "+mViewModel.getTt().getLosses());
         }
-
-
-
-
     }
 
     @SuppressLint("SetTextI18n")

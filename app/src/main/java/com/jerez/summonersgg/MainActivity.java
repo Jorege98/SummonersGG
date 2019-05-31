@@ -2,6 +2,7 @@ package com.jerez.summonersgg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,8 @@ import com.jerez.summonersgg.ui.fragments.MainActivityViewModel;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+
+    Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        this.menu = menu;
         return true;
     }
 
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
                 Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.StatusBarHome);
+                showMenu();
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, Fragment_busqueda.newInstance())
                         .commitNow();
@@ -74,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
             Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.StatusBarHome);
+            showMenu();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, Fragment_busqueda.newInstance())
                     .commitNow();
@@ -85,8 +91,34 @@ public class MainActivity extends AppCompatActivity {
     public void onSummonerFind(MainActivityViewModel viewModel) {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         Objects.requireNonNull(getSupportActionBar()).setTitle(viewModel.getSummoner().getName());
+        hideMenu();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, Fragment_summoner.newInstance(viewModel))
                 .commitNow();
+    }
+
+    void hideMenu(){
+        boolean next = true;
+        int cont = 0;
+        do {
+            try {
+                menu.getItem(cont).setVisible(false);
+            }catch (IndexOutOfBoundsException e){
+                next=false;
+            }
+            cont++;
+        }while (next);
+    }
+
+    void showMenu(){
+        boolean next = true;
+        int cont = 0;
+        do {
+            try {
+                menu.getItem(cont).setVisible(true);
+            }catch (IndexOutOfBoundsException e){
+                next=false;
+            }            cont++;
+        }while (next);
     }
 }

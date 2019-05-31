@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,6 +80,9 @@ public class Fragment_busqueda extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
+        ProgressBar loader = getView().findViewById(R.id.loader);
+        loader.setVisibility(View.VISIBLE);
+
         if (regionPeference==null){
             Toasty.Config.getInstance().allowQueue(false).apply();
             Toast toast = Toasty.error(getActivity(), R.string.noregion, Toast.LENGTH_LONG, true);
@@ -133,5 +137,6 @@ public class Fragment_busqueda extends Fragment implements View.OnClickListener 
             }
 
         }
+        loader.setVisibility(View.INVISIBLE);
     }
 }

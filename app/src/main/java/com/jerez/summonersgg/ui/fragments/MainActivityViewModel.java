@@ -20,6 +20,7 @@ import net.rithms.riot.api.ApiConfig;
 import net.rithms.riot.api.RiotApi;
 import net.rithms.riot.api.RiotApiException;
 import net.rithms.riot.api.endpoints.league.dto.LeaguePosition;
+import net.rithms.riot.api.endpoints.spectator.dto.CurrentGameInfo;
 import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 import net.rithms.riot.constant.Platform;
 
@@ -34,6 +35,8 @@ public class MainActivityViewModel extends AndroidViewModel {
     private LeaguePosition tt;
     private LeaguePosition flex;
     private LeaguePosition soloq;
+    private RiotApi api;
+    private String region;
 
 
     public MainActivityViewModel(@NonNull Application application) {
@@ -42,9 +45,9 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
     Summoner loadSummoner(String region, String name) throws RiotApiException {
-
+        this.region = region;
         ApiConfig config = new ApiConfig().setKey("RGAPI-418cec1b-07dd-447e-a2bf-6a93f4eececc");
-        RiotApi api = new RiotApi(config);
+        api = new RiotApi(config);
 
 
         Summoner summoner = api.getSummonerByName(Platform.getPlatformByName(region), name);
@@ -110,6 +113,15 @@ public class MainActivityViewModel extends AndroidViewModel {
         }
 
         return image;
+    }
+
+    boolean isInGame(){
+        try {
+            CurrentGameInfo activeGameBySummoner = api.getActiveGameBySummoner(Platform.getPlatformByName(region), summoner.getId());
+            return activeGameBySummoner != null;
+        } catch (RiotApiException e) {
+            return false;
+        }
     }
 
     public Summoner getSummoner() {
