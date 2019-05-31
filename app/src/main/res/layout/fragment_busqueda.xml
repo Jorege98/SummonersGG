@@ -5,7 +5,7 @@
     android:id="@+id/fragmentbusqueda"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragmentbusqueda.Fragment_busqueda"
+    tools:context=".ui.fragments.Fragment_busqueda"
     android:background="@color/launcher">
 
     <Button
@@ -15,10 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="50dp"
-<<<<<<< HEAD
-=======
         android:onClick="buscar"
->>>>>>> master
         android:text="@string/findButon"
         android:textAlignment="center"
         android:textSize="24sp"

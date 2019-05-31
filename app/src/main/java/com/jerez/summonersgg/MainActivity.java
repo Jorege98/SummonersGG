@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.jerez.summonersgg.ui.fragmentbusqueda.Fragment_busqueda;
+import com.jerez.summonersgg.ui.fragments.Fragment_busqueda;
+import com.jerez.summonersgg.ui.fragments.Fragment_summoner;
+import com.jerez.summonersgg.ui.fragments.MainActivityViewModel;
 
 import java.util.Objects;
 
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.StatusBarHome);
+
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -86,6 +89,4 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.container, Fragment_summoner.newInstance(viewModel))
                 .commitNow();
     }
-
-
 }
