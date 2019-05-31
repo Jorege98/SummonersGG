@@ -2,13 +2,18 @@ package com.jerez.summonersgg.ui.fragments;
 
 import android.app.Application;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-import com.jerez.summonersgg.LauncherActivity;
 import com.jerez.summonersgg.R;
 
 import net.rithms.riot.api.ApiConfig;
@@ -18,14 +23,17 @@ import net.rithms.riot.api.endpoints.league.dto.LeaguePosition;
 import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 import net.rithms.riot.constant.Platform;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 public class MainActivityViewModel extends AndroidViewModel {
 
     private Resources resources;
     private Summoner summoner;
+    private LeaguePosition tt;
+    private LeaguePosition flex;
+    private LeaguePosition soloq;
 
 
     public MainActivityViewModel(@NonNull Application application) {
@@ -41,11 +49,22 @@ public class MainActivityViewModel extends AndroidViewModel {
 
         Summoner summoner = api.getSummonerByName(Platform.getPlatformByName(region), name);
 
-//        Collection<LeaguePosition> leaguePositionsBySummonerId = api.getLeaguePositionsBySummonerId(Platform.getPlatformByName(region), summoner.getId());
-//
-//        for (LeaguePosition leage :leaguePositionsBySummonerId) {
-//            leage.getTier();
-//        }
+        Collection<LeaguePosition> leaguePositionsBySummonerId = api.getLeaguePositionsBySummonerId(Platform.getPlatformByName(region), summoner.getId());
+
+        for (LeaguePosition league :leaguePositionsBySummonerId) {
+            switch (league.getQueueType()){
+                case "RANKED_SOLO_5x5":
+                    soloq = league;
+                    break;
+                case "RANKED_FLEX_TT":
+                    tt = league;
+                    break;
+                case "RANKED_FLEX_SR":
+                    flex = league;
+                    break;
+            }
+
+        }
 
         return summoner;
     }
@@ -97,7 +116,53 @@ public class MainActivityViewModel extends AndroidViewModel {
         return summoner;
     }
 
-    public void setSummoner(Summoner summoner) {
+    void setSummoner(Summoner summoner) {
         this.summoner = summoner;
     }
+
+    LeaguePosition getTt() {
+        return tt;
+    }
+
+    LeaguePosition getFlex() {
+        return flex;
+    }
+
+    LeaguePosition getSoloq() {
+        return soloq;
+    }
+
+    Bitmap getSummonerIcon(int id) throws IOException {
+        String preURL = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/"+id+".png";
+        URL url = null;
+        Bitmap image = null;
+
+        url =  new URL(preURL);
+        image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+        image = Bitmap.createScaledBitmap(image, 500, 500, false);
+        image = getCroppedBitmap(image);
+
+        return  image;
+    }
+
+    private Bitmap getCroppedBitmap(Bitmap bitmap) {
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(),
+                bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+
+        canvas.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2,
+                bitmap.getWidth() / 2, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, rect, rect, paint);
+        return output;
+    }
+
 }
