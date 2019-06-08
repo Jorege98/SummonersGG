@@ -50,9 +50,9 @@ public class Fragment_summoner extends Fragment {
     private void cargarDatos(){
         ImageView summonerIcon = getView().findViewById(R.id.icon);
         TextView level = getView().findViewById(R.id.level);
+        level.setText(getResources().getString(R.string.level)+mViewModel.getSummoner().getSummonerLevel());
         try {
             summonerIcon.setImageBitmap(mViewModel.getSummonerIcon(mViewModel.getSummoner().getProfileIconId()));
-            level.setText(getResources().getString(R.string.level)+mViewModel.getSummoner().getSummonerLevel());
         } catch (IOException e) {
             summonerIcon.setImageDrawable(getResources().getDrawable(R.drawable.notfound, null));
         }
@@ -132,6 +132,7 @@ public class Fragment_summoner extends Fragment {
     }
 
     private void setLeagueIcon(@NotNull ImageView icon, @NotNull String tier){
+        System.out.println(tier);
         switch (tier.toUpperCase()){
             case "IRON":
                 icon.setImageDrawable(getResources().getDrawable(R.drawable.iron, null));
@@ -145,7 +146,7 @@ public class Fragment_summoner extends Fragment {
             case "GOLD":
                 icon.setImageDrawable(getResources().getDrawable(R.drawable.gold, null));
                 break;
-            case "PLATINU":
+            case "PLATINUM":
                 icon.setImageDrawable(getResources().getDrawable(R.drawable.platinium, null));
                 break;
             case "DIAMOND":
